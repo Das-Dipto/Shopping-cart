@@ -1,3 +1,10 @@
+function phoneElement(bool, quantityElement, priceElement){
+    const phone_quantity = document.getElementById(quantityElement);
+    const phone_price = document.getElementById(priceElement);
+    
+    phoneCalculation(bool, phone_quantity, phone_price);
+}
+
 function phoneCalculation( isTrue, quantity, price){
     const stringValue = quantity.value;
     let numberValue = parseInt(stringValue);
@@ -16,18 +23,18 @@ function phoneCalculation( isTrue, quantity, price){
     const computation = numberValue * 1219;
     quantity.value = numberValue;
     price.innerText = computation;
-    
 }
 
+
 document.getElementById('btn-phone-plus').addEventListener('click', function(){
-    const phone_quantity = document.getElementById('phone-quantity');
-    const phone_price = document.getElementById('phone-price');
-    const update = phoneCalculation (true, phone_quantity, phone_price);
+   phoneElement(true, 'phone-quantity', 'phone-price');
+   mainCalculation('phone-price', 'case-price');
+   
 })
 
 document.getElementById('btn-phone-minus').addEventListener('click', function(){
-    const phone_quantity = document.getElementById('phone-quantity');
-    const phone_price = document.getElementById('phone-price');
-    const update = phoneCalculation (false, phone_quantity, phone_price);
+   phoneElement(false, 'phone-quantity', 'phone-price');
+   mainCalculation('phone-price', 'case-price');
+   
 })
 

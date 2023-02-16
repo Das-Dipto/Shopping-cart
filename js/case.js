@@ -1,3 +1,11 @@
+function caseElement(bool, quantityElement, priceElement){
+    const case_quantity = document.getElementById(quantityElement);
+    const case_price = document.getElementById(priceElement);
+ 
+    caseCalculation(bool, case_quantity, case_price);
+
+}
+
 function caseCalculation( isTrue, quantity, price){
     const stringValue = quantity.value;
     let numberValue = parseInt(stringValue);
@@ -16,18 +24,18 @@ function caseCalculation( isTrue, quantity, price){
     const computation = numberValue * 59;
     quantity.value = numberValue;
     price.innerText = computation;
-    
 }
 
 document.getElementById('btn-case-plus').addEventListener('click', function(){
-    const case_quantity = document.getElementById('case-quantity');
-    const case_price = document.getElementById('case-price');
-    const update = caseCalculation (true, case_quantity, case_price);
+
+   caseElement(true, 'case-quantity', 'case-price');
+   mainCalculation('phone-price', 'case-price');
 })
 
 document.getElementById('btn-case-minus').addEventListener('click', function(){
-    const case_quantity = document.getElementById('case-quantity');
-    const case_price = document.getElementById('case-price');
-    const update = caseCalculation (false, case_quantity, case_price);
+  
+    caseElement(false, 'case-quantity', 'case-price');
+    mainCalculation('phone-price', 'case-price');
 })
+
 
